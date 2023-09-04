@@ -45,7 +45,7 @@ const createMovieListItem = (result) => {
   itemTitle.classList.add('item-title', 'skeleton');
   itemTitle.innerHTML = title;
   itemScore.classList.add('item-score', 'skeleton');
-  itemStarImage.src = './star_filled.png';
+  itemStarImage.src = '../assets/star_filled.png';
   itemStarImage.alt = '별점';
 
   listItem.appendChild(a);
