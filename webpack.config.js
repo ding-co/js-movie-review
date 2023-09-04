@@ -1,27 +1,26 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const DotEnv = require("dotenv-webpack");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DotEnv = require('dotenv-webpack');
 
 module.exports = {
-  entry: "./src/index.js",
-  mode: "development",
+  entry: './src/index.js',
+  mode: 'development',
   resolve: {
-    extensions: [".js"],
+    extensions: ['.js', '.css'],
   },
   devServer: {
-    static: "./dist",
+    static: './dist',
     open: true,
     historyApiFallback: true,
   },
   output: {
-    publicPath: "/",
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./index.html",
+      template: './index.html',
     }),
     new DotEnv(),
   ],
@@ -30,21 +29,21 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          "style-loader",
-          { loader: "css-loader", options: { url: false } },
+          'style-loader',
+          { loader: 'css-loader', options: { url: false } },
         ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
       {
         test: /\.png$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              name: "[name].[ext]",
+              name: '[name].[ext]',
             },
           },
         ],
